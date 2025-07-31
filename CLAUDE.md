@@ -194,9 +194,33 @@ Tests include:
 - Performance comparison to original paper
 
 ### Configuration
-Required environment variable:
+
+#### Getting Gemini API Key
+1. Go to [Google AI Studio](https://aistudio.google.com/app/apikey)
+2. Sign in with your Google account
+3. Click "Create API Key"
+4. Copy the generated API key
+
+#### Setting Environment Variable
 ```bash
-export GEMINI_API_KEY="your_gemini_api_key"
+# Option 1: Export for current session
+export GEMINI_API_KEY="your_gemini_api_key_here"
+
+# Option 2: Add to your shell profile (permanent)
+echo 'export GEMINI_API_KEY="your_gemini_api_key_here"' >> ~/.zshrc
+source ~/.zshrc
+
+# Option 3: Create .env file in project root
+echo 'GEMINI_API_KEY=your_gemini_api_key_here' > .env
+```
+
+#### Verify Setup
+```bash
+# Check if API key is set
+echo $GEMINI_API_KEY
+
+# Test BiasScanner functionality
+python test_biasscanner.py
 ```
 
 Rate limits (following original BiasScanner):
