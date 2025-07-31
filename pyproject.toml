@@ -1,0 +1,58 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vibenews"
+version = "0.1.0"
+description = "Swiss news bias aggregator with RAG-powered ranking"
+authors = [
+    {name = "VibeNews Team"}
+]
+dependencies = [
+    "fastapi",
+    "uvicorn[standard]",
+    "pydantic",
+    "pydantic-settings",
+    "python-multipart",
+    "requests",
+    "beautifulsoup4",
+    "lxml",
+    "scrapy",
+    "newspaper3k",
+    "transformers",
+    "sentence-transformers",
+    "torch",
+    "numpy",
+    "pandas",
+    "scikit-learn",
+    "nltk",
+    "spacy",
+    "bertopic",
+    "chromadb",
+    "openai",
+    "anthropic",
+    "python-dotenv",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "black",
+    "ruff",
+    "mypy",
+]
+
+[tool.black]
+line-length = 88
+target-version = ['py311']
+
+[tool.ruff]
+target-version = "py311"
+line-length = 88
+select = ["E", "F", "I", "N", "W", "UP"]
+
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = true
+warn_unused_configs = true

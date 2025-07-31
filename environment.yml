@@ -1,0 +1,37 @@
+name: vibenews
+channels:
+  - conda-forge
+  - pytorch
+  - defaults
+dependencies:
+  - python=3.11
+  - pip
+  - pytorch
+  - torchvision
+  - torchaudio
+  - pytorch-cuda=12.1
+  - numpy
+  - pandas
+  - scikit-learn
+  - requests
+  - beautifulsoup4
+  - lxml
+  - nltk
+  - spacy
+  - transformers
+  - sentence-transformers
+  - chromadb
+  - pip:
+    - fastapi
+    - uvicorn[standard]
+    - pydantic
+    - pydantic-settings
+    - python-multipart
+    - bertopic
+    - google-generativeai
+    - scrapy
+    - newspaper3k
+    - python-dotenv
+    - pytest
+    - black
+    - ruff
