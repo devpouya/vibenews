@@ -240,3 +240,85 @@ Rate limits (following original BiasScanner):
 - BABE dataset validation framework
 - Swiss political spectrum mapping (-1 to +1)
 - Comprehensive bias reporting and visualization
+
+## BERT Bias Classification Pipeline ✅
+
+**Status**: COMPLETE - Full BERT-based bias classification pipeline ready for training
+
+### Implementation Overview
+Implemented a complete BERT-based bias classification system using the BABE dataset:
+- **Architecture**: BERT-base-uncased + linear classification head
+- **Classes**: 3-class bias detection (Non-biased, Biased, No agreement)
+- **Dataset**: 5,374 BABE samples (4,299 train, 1,075 validation)
+- **Features**: Raw text processing, confidence scoring, comprehensive evaluation
+
+### Implementation Structure
+
+#### Core Components
+- `backend/ml/bias_classifier.py` - Complete BERT classification pipeline with confidence scoring
+- `test_bert_pipeline.py` - Pipeline validation and testing
+- `test_babe_simple.py` - BABE dataset loading validation
+
+#### Key Features
+1. **No Text Preprocessing** - Preserves original bias signals (punctuation, capitalization, emphasis)
+2. **Confidence Scoring** - Softmax probabilities + entropy-based uncertainty quantification
+3. **Comprehensive Metrics** - Accuracy, F1-score, precision/recall per class
+4. **Training Ready** - Complete Transformers Trainer API integration
+
+#### Data Processing
+- **Label Mapping**: {"Non-biased": 0, "Biased": 1, "No agreement": 2}
+- **Train/Val Split**: 80/20 stratified split
+- **Text Handling**: Raw text preservation, 512 token limit with truncation
+- **Device Compatibility**: CPU-based for broad compatibility
+
+#### Training Pipeline
+```python
+# Complete training setup
+classifier = BiasClassifier()
+texts, labels = classifier.load_babe_data(babe_df)
+train_dataset, val_dataset = classifier.create_datasets(texts, labels)
+classifier.initialize_model(num_labels=3)
+trainer = classifier.setup_training(train_dataset, val_dataset)
+
+# Ready for training
+trainer.train()  # 3 epochs, batch size 16, learning rate 2e-5
+```
+
+#### Prediction with Confidence
+```python
+predictions = classifier.predict_with_confidence(texts)
+# Returns: predicted_class, confidence, entropy, all_probabilities
+```
+
+### Performance Expectations
+- **Target**: Competitive with BiasScanner (76% F1-score)
+- **Training Time**: ~30-60 minutes on CPU
+- **Inference**: Real-time bias scoring with confidence intervals
+- **Memory**: ~500MB model size
+
+### Testing Status
+✅ **Pipeline Validated**:
+- BABE dataset loading: 5,374 samples loaded successfully
+- Data preprocessing: Label distribution and text statistics verified
+- Model initialization: BERT-base + classification head ready
+- Training setup: Transformers Trainer configured
+- Dataset creation: Train/validation split completed
+
+### Next Steps Ready for Execution
+1. **Training**: `trainer.train()` - Execute 3-epoch training run
+2. **Evaluation**: Validate on held-out test set, generate confusion matrix
+3. **Swiss Integration**: Apply to Swiss news articles, map to political spectrum
+4. **Production**: Deploy trained model for real-time bias scoring
+
+### Integration Benefits
+✅ **For VibeNews System**:
+- **Faster Inference**: BERT predictions vs LLM API calls
+- **Offline Capability**: No API dependencies after training
+- **Confidence Scoring**: Uncertainty quantification for reliable predictions
+- **Scalable**: Batch processing for large article volumes
+
+✅ **For Research**:
+- **Benchmark Comparison**: BERT vs BiasScanner performance
+- **Cross-lingual Transfer**: English BABE → German Swiss articles
+- **Ensemble Methods**: Combine BERT + BiasScanner predictions
+- **Bias Analysis**: Systematic comparison of US vs Swiss news patterns
