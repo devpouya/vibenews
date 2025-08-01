@@ -1,0 +1,51 @@
+{
+  "scraping_session": {
+    "timestamp": "2025-08-01T16:52:26.616594",
+    "total_articles": 200,
+    "target_achieved": true,
+    "topics_covered": [
+      "russia-ukraine-conflict",
+      "climate-change-policy",
+      "economic-inflation",
+      "immigration-policy",
+      "tech-regulation"
+    ],
+    "sources_used": [
+      "ap",
+      "bbc",
+      "thehill",
+      "conversation",
+      "Reuters",
+      "BBC",
+      "CNN",
+      "Politico",
+      "The Hill",
+      "EU Council",
+      "The Conversation"
+    ]
+  },
+  "source_breakdown": {
+    "ap": 25,
+    "bbc": 25,
+    "thehill": 25,
+    "conversation": 6,
+    "Reuters": 19,
+    "BBC": 15,
+    "CNN": 19,
+    "Politico": 18,
+    "The Hill": 15,
+    "EU Council": 18,
+    "The Conversation": 15
+  },
+  "topic_breakdown": {
+    "russia-ukraine-conflict": 42,
+    "climate-change-policy": 42,
+    "economic-inflation": 39,
+    "immigration-policy": 39,
+    "tech-regulation": 38
+  },
+  "file_info": {
+    "output_file": "backend/data/raw/complete_200_articles_20250801_165226.jsonl",
+    "estimated_size_mb": 0.4393129348754883
+  }
+}
