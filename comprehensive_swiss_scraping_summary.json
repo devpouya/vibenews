@@ -1,0 +1,13 @@
+{
+  "timestamp": "2025-08-02T19:23:38.172245",
+  "total_scraped": 56,
+  "total_added_to_db": 56,
+  "sources": {
+    "Watson": 2,
+    "SRF": 54
+  },
+  "languages": [
+    "de"
+  ],
+  "average_word_count": 24
+}

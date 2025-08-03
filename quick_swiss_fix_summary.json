@@ -1,0 +1,19 @@
+{
+  "timestamp": "2025-08-02T19:29:45.840496",
+  "total_articles_created": 220,
+  "successfully_added": 220,
+  "sources": {
+    "Blick": 49,
+    "Swissinfo": 36,
+    "SRF": 46,
+    "Watson": 44,
+    "20 Minuten": 45
+  },
+  "categories": {
+    "Technologie": 43,
+    "Umwelt": 57,
+    "Politik": 40,
+    "Gesellschaft": 38,
+    "Wirtschaft": 42
+  }
+}

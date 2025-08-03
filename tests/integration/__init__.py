@@ -1,1 +1,0 @@
-# Integration Tests - Complete workflow validation

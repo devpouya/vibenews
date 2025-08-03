@@ -1,1 +1,0 @@
-# Validation Tests - Deployment readiness checks
